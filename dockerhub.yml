@@ -1,0 +1,50 @@
+metadata:
+  uid: 96a6c4ef-8acb-4ae1-882a-336bc58240c6
+  managedFields:
+    - apiVersion: v1
+      fieldsV1:
+        'f:data':
+          'f:.dockerconfigjson': {}
+          .: {}
+        'f:metadata':
+          'f:annotations':
+            'f:artifact.spinnaker.io/version': {}
+            'f:artifact.spinnaker.io/name': {}
+            'f:moniker.spinnaker.io/cluster': {}
+            'f:strategy.spinnaker.io/versioned': {}
+            'f:kubectl.kubernetes.io/last-applied-configuration': {}
+            'f:artifact.spinnaker.io/type': {}
+            'f:moniker.spinnaker.io/application': {}
+            'f:artifact.spinnaker.io/location': {}
+            .: {}
+          'f:labels':
+            'f:app.kubernetes.io/name': {}
+            .: {}
+            'f:app.kubernetes.io/managed-by': {}
+        'f:type': {}
+      manager: kubesvc
+      time: '2021-10-13T12:06:28Z'
+      operation: Update
+      fieldsType: FieldsV1
+  resourceVersion: '346295'
+  creationTimestamp: '2021-10-13T12:06:28Z'
+  name: docker-regcred
+  namespace: spinnaker
+  annotations:
+    artifact.spinnaker.io/version: ''
+    artifact.spinnaker.io/name: docker-regcred
+    strategy.spinnaker.io/versioned: 'false'
+    artifact.spinnaker.io/location: spinnaker
+    artifact.spinnaker.io/type: kubernetes/secret
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"v1","data":{".dockerconfigjson":"eyJhdXRocyI6eyJodHRwczovL2luZGV4LmRvY2tlci5pby92MS8iOnsidXNlcm5hbWUiOiJhcm1vcnltZ3JvdXNlciIsInBhc3N3b3JkIjoiaDl5dWc2R1Z1QVZDQ0V2WFVCVWdMTnQhIiwiZW1haWwiOiJtYW5hZ2VkLXNlcnZpY2VzQGFybW9yeS5pbyIsImF1dGgiOiJZWEp0YjNKNWJXZHliM1Z6WlhJNmFEbDVkV2MyUjFaMVFWWkRRMFYyV0ZWQ1ZXZE1UblFoIn19fQ=="},"kind":"Secret","metadata":{"annotations":{"artifact.spinnaker.io/location":"spinnaker","artifact.spinnaker.io/name":"docker-regcred","artifact.spinnaker.io/type":"kubernetes/secret","artifact.spinnaker.io/version":"","moniker.spinnaker.io/application":"zendesk-spinnaker","moniker.spinnaker.io/cluster":"secret
+      docker-regcred","strategy.spinnaker.io/versioned":"false"},"labels":{"app.kubernetes.io/managed-by":"spinnaker","app.kubernetes.io/name":"zendesk-spinnaker"},"name":"docker-regcred","namespace":"spinnaker"},"type":"kubernetes.io/dockerconfigjson"}
+    moniker.spinnaker.io/cluster: secret docker-regcred
+    moniker.spinnaker.io/application: zendesk-spinnaker
+  labels:
+    app.kubernetes.io/managed-by: spinnaker
+    app.kubernetes.io/name: zendesk-spinnaker
+apiVersion: v1
+kind: Secret
+type: kubernetes.io/dockerconfigjson
+

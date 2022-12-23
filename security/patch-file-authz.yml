@@ -10,10 +10,13 @@ metadata:
   name: spinnaker
 spec:
   spinnakerConfig:
-    #profiles:
-    #  deck: # Enable this setting under core/patches/ui-feature-flags.yml
-    #    settings-local.js: |
-    #      window.spinnakerSettings.authEnabled = true;
+    profiles:
+      fiat:
+        fiat:
+          defaultToUnrestrictedUser: true
+      orca:
+        tasks:
+          useManagedServiceAccounts: true
     config:
       security:
         authz:
