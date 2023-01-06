@@ -2,11 +2,11 @@ users:
   - roles:
       - spinadmin
       - prod
-    username: admin@alcspintest.com
+    username: admin@spintest.com
   - roles:
       - guava
       - guava-np
       - fruit
       - dev
-    username: guavadev@alcspintest.com
+    username: noadmin@spintest.com
   - username: robin
