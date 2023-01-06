@@ -9,11 +9,31 @@ kind: SpinnakerService
 metadata:
   name: spinnaker
 spec:
+  kustomize:
+    fiat:
+      deployment:
+        patchesJson6902: |
+          - op: add
+            path: /spec/template/spec/containers/0/volumeMounts/-
+            value:
+              mountPath: /tmp/fiat-roles
+              name: spin-fiat-roles
+          - op: add
+            path: /spec/template/spec/volumes/-
+            value:
+              name: spin-fiat-roles
+              configMap:
+                name: fiat-roles
   spinnakerConfig:
     profiles:
       fiat:
         fiat:
           defaultToUnrestrictedUser: true
+        auth:
+          groupMembership:
+            service: file
+            file:
+              path: /tmp/fiat-roles/rolemappings.yml
       orca:
         tasks:
           useManagedServiceAccounts: true
@@ -21,28 +41,3 @@ spec:
       security:
         authz:
           enabled: true
-          groupMembership:
-            service: FILE  # One of EXTERNAL, FILE, GOOGLE, GITHUB, LDAP
-            file:
-              roleProviderType: FILE
-              path: rolemappings.yml # A path to a file describing the roles of each user.
-    files:
-      rolemappings.yml: |
-        #-----------------------------------------------------------------------------------------------------------------
-        # Example file mapping usernames to roles (groups).
-        # User names come from an external system configured as an authn provider.
-        # Roles don’t need to be defined elsewhere, they’re automatically created based on these mappings.
-        #-----------------------------------------------------------------------------------------------------------------
-        users:
-        - username: foo
-          roles:
-          - bar
-          - baz
-        - username: batman
-          roles:
-          - crimeFighter
-          - jokerJailer
-        - username: robin
-          roles: []
-        - username: joker
-        - username: john.doe@mycompany.com

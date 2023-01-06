@@ -43,7 +43,7 @@ patchesStrategicMerge:
   # Authentication and authorization
   #- security/patch-github.yml
 #  - security/patch-saml.yml
-  - security/patch-basic-auth.yml
+#  - security/patch-basic-auth.yml
   - security/patch-file-authz.yml
 #  - security/patch-google-groups-auth.yml              ## (Optional) Enable and configure Google Groups for AuthN and AuthZ https://spinnaker.io/setup/security/authorization/
 #  - security/patch-external-authz.yml                  ## (Optional) enable external AuthZ and set spinnaker admin roles
@@ -100,15 +100,14 @@ patchesStrategicMerge:
 #  - plugins/armory-agent/patch-clouddriver.yaml  # Requires persistence/patch-sql-clouddriver.yml and the base dir plugins/armory-agent
 
 # Mounting any custom files into spinnaker pods (see patch-volumes.yml)
-#generatorOptions:
-#  disableNameSuffixHash: true
+generatorOptions:
+  disableNameSuffixHash: true
 #secretGenerator:
 #  - name: custom-volume
 #    files:
 #      - spinnaker_deployment/custom-volume/file.txt
 
-#configMapGenerator:
-#  # ConfigMap holding OPA policy definitions for use by Armory's Policy Engine. Required by patch-policy-engine-plugin.yml
-#  - name: spin-policies
-#    files:
-#     - armory/policies/manual-judgement.rego
+configMapGenerator:
+  - name: fiat-roles
+    files:
+     - security/rolemappings.yml
