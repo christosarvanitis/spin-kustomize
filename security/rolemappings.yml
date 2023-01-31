@@ -1,0 +1,12 @@
+users:
+  - roles:
+      - spinadmin
+      - prod
+    username: admin@spintest.com
+  - roles:
+      - guava
+      - guava-np
+      - fruit
+      - dev
+    username: noadmin@spintest.com
+  - username: robin
